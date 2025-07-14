@@ -1,26 +1,95 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Root light mode variables */
 :root {
+  --font-sans: 'Manrope', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --astro-blue: #7DC9E7;
+  --astro-blue-dark: #4D9AC7;
+  --astro-accent: #f472b6;
+  --astro-muted: #64748b;
+  --astro-text: #1e293b;
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #0f172a;
+  --muted: #f3f4f6;
+  --muted-foreground: #747e89;
+  --accent: #f3f4f6;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #1e293b;
+  --chart-1: #f59e0b;
+  --chart-2: #0ea5e9;
+  --chart-3: #1e40af;
+  --chart-4: #facc15;
+  --chart-5: #fb923c;
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark mode overrides (class-based) */
+.dark {
+  --astro-blue: #60b4d9;
+  --astro-blue-dark: #3b8cb5;
+  --astro-accent: #fb7185;
+  --astro-muted: #94a3b8;
+  --astro-text: #f8fafc;
+
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --destructive: #b91c1c;
+  --destructive-foreground: #f8fafc;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #cbd5e1;
+  --chart-1: #3b82f6;
+  --chart-2: #10b981;
+  --chart-3: #f97316;
+  --chart-4: #a855f7;
+  --chart-5: #ef4444;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base layer overrides */
+@layer base {
+  * {
+    @apply border-border;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Adjust if your navbar height is different */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
 }
