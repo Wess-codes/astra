@@ -7,10 +7,10 @@ import {
   DialogContent,
   DialogClose,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-// Define project shape
 interface Project {
   title: string;
   category: string;
@@ -26,6 +26,11 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, withDialog = false }: ProjectCardProps) {
+  const idSafeTitle = project.title
+    .replace(/[^\w\s]/gi, "")
+    .replace(/\s+/g, "-")
+    .toLowerCase();
+
   const card = (
     <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition bg-white dark:bg-zinc-900">
       <Image
@@ -63,7 +68,7 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
 
       <DialogContent
         className="max-w-xl w-full bg-white dark:bg-zinc-900 rounded-xl p-6 overflow-y-auto max-h-[90vh] transition-all"
-        aria-describedby={`project-desc-${project.title.replace(/\s+/g, "-").toLowerCase()}`}
+        aria-describedby={`project-desc-${idSafeTitle}`}
       >
         <DialogClose asChild>
           <button
@@ -86,12 +91,12 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
           className="w-full h-auto object-cover rounded-lg mb-4"
         />
 
-        <p
-          id={`project-desc-${project.title.replace(/\s+/g, "-").toLowerCase()}`}
+        <DialogDescription
+          id={`project-desc-${idSafeTitle}`}
           className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
         >
           {project.description}
-        </p>
+        </DialogDescription>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((tech, i) => (

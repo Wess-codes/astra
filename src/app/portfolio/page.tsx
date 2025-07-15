@@ -7,10 +7,11 @@ import {
   DialogContent,
   DialogClose,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-// 1. Define the project shape
+// Project shape
 interface Project {
   title: string;
   category: string;
@@ -20,7 +21,7 @@ interface Project {
   liveLink: string;
 }
 
-// 2. Project data
+// Sample data
 const projects: Project[] = [
   {
     title: "Swift Styles Shop",
@@ -64,7 +65,7 @@ const projects: Project[] = [
   },
 ];
 
-// 3. Card Component
+// Card component
 function ProjectCard({ project }: { project: Project }) {
   const card = (
     <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all bg-white dark:bg-zinc-900 cursor-pointer group">
@@ -135,6 +136,10 @@ function ProjectCard({ project }: { project: Project }) {
           {project.title}
         </DialogTitle>
 
+        <DialogDescription id="dialog-description" className="mb-4 text-sm text-gray-700 dark:text-gray-300">
+          {project.description}
+        </DialogDescription>
+
         <Image
           src={project.image}
           alt={project.title}
@@ -142,13 +147,6 @@ function ProjectCard({ project }: { project: Project }) {
           height={300}
           className="w-full rounded-lg mb-4 object-cover"
         />
-
-        <p
-          id="dialog-description"
-          className="text-sm mb-4 leading-relaxed text-gray-700 dark:text-gray-300"
-        >
-          {project.description}
-        </p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((tech, i) => (
@@ -173,7 +171,7 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-// 4. Portfolio Page
+// Portfolio Page
 export default function PortfolioPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">

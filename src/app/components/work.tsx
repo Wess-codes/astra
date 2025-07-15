@@ -8,6 +8,7 @@ import {
   DialogTrigger,
   DialogTitle,
   DialogClose,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -121,9 +122,16 @@ export default function Work() {
                   </button>
                 </DialogClose>
 
-                <DialogTitle className="text-2xl font-bold mb-4 text-astro-text dark:text-white">
+                <DialogTitle className="text-2xl font-bold mb-2 text-astro-text dark:text-white">
                   {project.title}
                 </DialogTitle>
+
+                <DialogDescription
+                  id={`dialog-description-${project.id}`}
+                  className="text-sm mb-4 leading-relaxed text-gray-700 dark:text-slate-300"
+                >
+                  {project.description}
+                </DialogDescription>
 
                 <Image
                   src={project.image}
@@ -132,13 +140,6 @@ export default function Work() {
                   height={300}
                   className="w-full rounded-lg object-cover mb-4"
                 />
-
-                <p
-                  id={`dialog-description-${project.id}`}
-                  className="text-sm text-gray-700 dark:text-slate-300 mb-4 leading-relaxed"
-                >
-                  {project.description}
-                </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
