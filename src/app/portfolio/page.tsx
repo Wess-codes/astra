@@ -27,10 +27,18 @@ const projects: Project[] = [
   {
     title: "CareCrest Nursing",
     category: "HealthTech",
-    image: "/portc.jpeg",
-    description: "Patient-focused healthcare management system with emergency features.",
+    image: "/poerc.jpeg",
+    description: "A  nursing website  that simplifies patient appointment scheduling, and homecare.",
     tech: ["Next.js", "Prisma", "Clerk"],
     liveLink: "https://carecrest.vercel.app",
+  },
+  {
+    title: "Careplus Healthcare",
+    category: "HealthTech",
+    image: "/portch.jpeg",
+    description: "Patient-focused healthcare management system with emergency features.",
+    tech: ["Next.js", "Prisma", "Clerk"],
+    liveLink: "https://careplus.vercel.app",
   },
   {
     title: "Astra Agency Redesign",
