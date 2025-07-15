@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { Dialog, DialogTrigger, DialogContent, DialogClose } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogClose,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 // Define project shape
@@ -30,9 +36,9 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
         className="w-full h-48 object-cover"
       />
       <div className="p-4">
-        <h3 className="text-lg font-bold">{project.title}</h3>
+        <h3 className="text-lg font-bold text-gray-800 dark:text-white">{project.title}</h3>
         <p className="text-sm text-gray-500 dark:text-gray-400">{project.category}</p>
-        <p className="text-sm mt-2">{project.description}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">{project.description}</p>
         <div className="flex flex-wrap gap-2 mt-3">
           {project.tech.map((tech, i) => (
             <span
@@ -57,6 +63,7 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
 
       <DialogContent
         className="max-w-xl w-full bg-white dark:bg-zinc-900 rounded-xl p-6 overflow-y-auto max-h-[90vh] transition-all"
+        aria-describedby={`project-desc-${project.title.replace(/\s+/g, "-").toLowerCase()}`}
       >
         <DialogClose asChild>
           <button
@@ -67,51 +74,48 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
           </button>
         </DialogClose>
 
-        <div className="space-y-4">
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={600}
-            height={300}
-            className="w-full h-auto object-cover rounded-lg"
-          />
+        <DialogTitle className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+          {project.title}
+        </DialogTitle>
 
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-              {project.title}
-            </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              {project.category}
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300 mt-3 leading-relaxed">
-              {project.description}
-            </p>
-          </div>
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={600}
+          height={300}
+          className="w-full h-auto object-cover rounded-lg mb-4"
+        />
 
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech, i) => (
-              <span
-                key={`${tech}-${i}`}
-                className="text-xs bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        <p
+          id={`project-desc-${project.title.replace(/\s+/g, "-").toLowerCase()}`}
+          className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+        >
+          {project.description}
+        </p>
 
-          {project.liveLink !== "#" && (
-            <a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tech.map((tech, i) => (
+            <span
+              key={`${tech}-modal-${i}`}
+              className="text-xs bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full"
             >
-              <Button className="bg-astro-blue hover:bg-blue-700 text-white px-4 py-2 text-sm rounded transition">
-                Visit Live Site →
-              </Button>
-            </a>
-          )}
+              {tech}
+            </span>
+          ))}
         </div>
+
+        {project.liveLink !== "#" && (
+          <a
+            href={project.liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="bg-astro-blue hover:bg-blue-700 text-white px-4 py-2 text-sm rounded transition">
+              Visit Live Site →
+            </Button>
+          </a>
+        )}
       </DialogContent>
     </Dialog>
   );

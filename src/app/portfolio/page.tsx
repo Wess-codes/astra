@@ -6,6 +6,7 @@ import {
   DialogTrigger,
   DialogContent,
   DialogClose,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -117,7 +118,10 @@ function ProjectCard({ project }: { project: Project }) {
         <div>{card}</div>
       </DialogTrigger>
 
-      <DialogContent className="max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 bg-white dark:bg-zinc-900 rounded-xl relative text-gray-900 dark:text-gray-100">
+      <DialogContent
+        className="max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 bg-white dark:bg-zinc-900 rounded-xl relative text-gray-900 dark:text-gray-100"
+        aria-describedby="dialog-description"
+      >
         <DialogClose asChild>
           <button
             aria-label="Close"
@@ -127,6 +131,10 @@ function ProjectCard({ project }: { project: Project }) {
           </button>
         </DialogClose>
 
+        <DialogTitle className="text-2xl font-semibold mb-2">
+          {project.title}
+        </DialogTitle>
+
         <Image
           src={project.image}
           alt={project.title}
@@ -135,9 +143,10 @@ function ProjectCard({ project }: { project: Project }) {
           className="w-full rounded-lg mb-4 object-cover"
         />
 
-        <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-
-        <p className="text-sm mb-4 leading-relaxed">
+        <p
+          id="dialog-description"
+          className="text-sm mb-4 leading-relaxed text-gray-700 dark:text-gray-300"
+        >
           {project.description}
         </p>
 

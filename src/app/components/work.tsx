@@ -108,7 +108,10 @@ export default function Work() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-2xl w-full bg-white dark:bg-[#111827] p-6 max-h-[90vh] overflow-y-auto rounded-xl relative">
+              <DialogContent
+                className="max-w-2xl w-full bg-white dark:bg-[#111827] p-6 max-h-[90vh] overflow-y-auto rounded-xl relative"
+                aria-describedby={`dialog-description-${project.id}`}
+              >
                 <DialogClose asChild>
                   <button
                     aria-label="Close"
@@ -130,7 +133,10 @@ export default function Work() {
                   className="w-full rounded-lg object-cover mb-4"
                 />
 
-                <p className="text-sm text-gray-700 dark:text-slate-300 mb-4 leading-relaxed">
+                <p
+                  id={`dialog-description-${project.id}`}
+                  className="text-sm text-gray-700 dark:text-slate-300 mb-4 leading-relaxed"
+                >
                   {project.description}
                 </p>
 
