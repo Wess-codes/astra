@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 // 1. Define the project shape
@@ -28,7 +33,7 @@ const projects: Project[] = [
     title: "CareCrest Nursing",
     category: "HealthTech",
     image: "/poerc.jpeg",
-    description: "A  nursing website  that simplifies patient appointment scheduling, and homecare.",
+    description: "A nursing site simplifying appointments and homecare.",
     tech: ["Next.js", "Prisma", "Clerk"],
     liveLink: "https://carecrest.vercel.app",
   },
@@ -36,7 +41,7 @@ const projects: Project[] = [
     title: "Careplus Healthcare",
     category: "HealthTech",
     image: "/portch.jpeg",
-    description: "Patient-focused healthcare management system with emergency features.",
+    description: "Patient-focused system with emergency support features.",
     tech: ["Next.js", "Prisma", "Clerk"],
     liveLink: "https://careplus.vercel.app",
   },
@@ -44,7 +49,7 @@ const projects: Project[] = [
     title: "Astra Agency Redesign",
     category: "Corporate",
     image: "/porta.jpeg",
-    description: "Modern redesign of our web agency site to elevate clarity and trust.",
+    description: "Modern redesign for our web agency to build clarity and trust.",
     tech: ["Next.js", "Figma", "ShadCN UI"],
     liveLink: "https://astradsign.vercel.app",
   },
@@ -52,7 +57,7 @@ const projects: Project[] = [
     title: "My Portfolio",
     category: "Personal",
     image: "/portw.jpeg",
-    description: "My personal portfolio showcasing projects, skills, and contact info.",
+    description: "My personal portfolio showcasing my dev skills and work.",
     tech: ["Next.js", "Framer Motion", "TailwindCSS"],
     liveLink: "https://wess-portfolio.vercel.app",
   },
@@ -106,24 +111,36 @@ function ProjectCard({ project }: { project: Project }) {
     </div>
   );
 
-  // Use Dialog Modal
   return (
     <Dialog>
       <DialogTrigger asChild>
         <div>{card}</div>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl w-full">
+
+      <DialogContent className="max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 bg-white dark:bg-zinc-900 rounded-xl relative text-gray-900 dark:text-gray-100">
+        <DialogClose asChild>
+          <button
+            aria-label="Close"
+            className="absolute top-4 right-4 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
+          >
+            ✕
+          </button>
+        </DialogClose>
+
         <Image
           src={project.image}
           alt={project.title}
-          width={800}
-          height={500}
-          className="rounded-lg w-full h-auto object-cover mb-4"
+          width={600}
+          height={300}
+          className="w-full rounded-lg mb-4 object-cover"
         />
-        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-3">
+
+        <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+
+        <p className="text-sm mb-4 leading-relaxed">
           {project.description}
         </p>
+
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((tech, i) => (
             <span
@@ -134,13 +151,12 @@ function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
+
         {project.liveLink !== "#" && (
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button>View Live</Button>
+          <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm dark:bg-blue-500 dark:hover:bg-blue-600">
+              Visit Live Project
+            </Button>
           </a>
         )}
       </DialogContent>
@@ -153,7 +169,7 @@ export default function PortfolioPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <h1 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900 dark:text-white">
-        My Projects
+        Our Projects
       </h1>
       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (

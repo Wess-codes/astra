@@ -7,10 +7,11 @@ import {
   DialogContent,
   DialogTrigger,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
-// Define project type
 type Project = {
   id: number;
   title: string;
@@ -35,8 +36,8 @@ const projects: Project[] = [
     id: 2,
     title: "CareCrest Nursing",
     category: "HealthTech",
-    image: "/portc.jpeg",
-    description: "Patient-focused healthcare management system with emergency features.",
+    image: "/poerc.jpeg",
+    description: "Healthcare system for nurses to streamline patient care and emergencies.",
     tech: ["Next.js", "Prisma", "Clerk"],
     liveLink: "https://carecrest.vercel.app",
   },
@@ -67,7 +68,6 @@ export default function Work() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-astro-text dark:text-white">
             Our Work
@@ -89,7 +89,6 @@ export default function Work() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
                 >
                   <Image
                     src={project.image}
@@ -109,20 +108,29 @@ export default function Work() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-2xl">
-                <DialogTitle className="text-2xl font-bold mb-4">
+              <DialogContent className="max-w-2xl w-full bg-white dark:bg-[#111827] p-6 max-h-[90vh] overflow-y-auto rounded-xl relative">
+                <DialogClose asChild>
+                  <button
+                    aria-label="Close"
+                    className="absolute top-4 right-4 text-gray-500 hover:text-black dark:hover:text-white transition"
+                  >
+                    ✕
+                  </button>
+                </DialogClose>
+
+                <DialogTitle className="text-2xl font-bold mb-4 text-astro-text dark:text-white">
                   {project.title}
                 </DialogTitle>
 
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={800}
-                  height={400}
-                  className="w-full rounded-md mb-4 object-cover"
+                  width={600}
+                  height={300}
+                  className="w-full rounded-lg object-cover mb-4"
                 />
 
-                <p className="text-astro-muted dark:text-slate-300 mb-4 text-sm">
+                <p className="text-sm text-gray-700 dark:text-slate-300 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -130,7 +138,7 @@ export default function Work() {
                   {project.tech.map((tech, i) => (
                     <span
                       key={`${tech}-${i}`}
-                      className="bg-astro-blue text-white text-xs px-2 py-1 rounded-full"
+                      className="text-xs bg-astro-blue/10 text-astro-blue dark:bg-astro-accent/10 dark:text-astro-accent px-2 py-1 rounded-full"
                     >
                       {tech}
                     </span>
@@ -142,9 +150,10 @@ export default function Work() {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-2 text-sm text-astro-blue underline hover:text-astro-accent transition"
                   >
-                    Visit Live Project
+                    <Button className="bg-astro-blue hover:bg-blue-700 text-white px-4 py-2 text-sm rounded mt-2 transition">
+                      Visit Live Project →
+                    </Button>
                   </Link>
                 )}
               </DialogContent>

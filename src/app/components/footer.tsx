@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Instagram, Twitter, Linkedin, ChevronUp, ChevronDown } from "lucide-react";
+import {
+  Instagram,
+  Twitter,
+  Linkedin,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer() {
@@ -22,7 +28,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#005ea6] dark:bg-[#005ea6] text-white border-t border-blue-900 mt-16">
+    <footer className="relative bg-[#005ea6] dark:bg-[#0a0f1c] text-white border-t border-blue-900">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Brand */}

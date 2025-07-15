@@ -2,6 +2,7 @@
 
 import { Code, Paintbrush, RefreshCw, Search, ArrowRight, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const services = [
   {
@@ -155,12 +156,12 @@ export default function ServicesPage() {
         <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base">
           Let’s turn your ideas into a stunning digital experience.
         </p>
-        <a
-          href="/work-with-us"
-          className="inline-block bg-astro-blue hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition duration-300"
-        >
-          Let’s Talk
-        </a>
+        <Link
+            href="/work-with-us"
+            className="block py-2 font-semibold underline underline-offset-4"
+          >
+            Work With Us
+          </Link>
       </div>
     </section>
   );
