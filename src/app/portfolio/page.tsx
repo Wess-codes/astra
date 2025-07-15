@@ -25,12 +25,12 @@ const projects: Project[] = [
     liveLink: "https://swiftstyles.vercel.app",
   },
   {
-    title: "Carecrest Health",
+    title: "CareCrest Nursing",
     category: "HealthTech",
     image: "/portc.jpeg",
     description: "Patient-focused healthcare management system with emergency features.",
     tech: ["Next.js", "Prisma", "Clerk"],
-    liveLink: "https://careplus.vercel.app",
+    liveLink: "https://carecrest.vercel.app",
   },
   {
     title: "Astra Agency Redesign",

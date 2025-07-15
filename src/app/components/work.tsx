@@ -7,34 +7,45 @@ import {
   DialogContent,
   DialogTrigger,
   DialogTitle,
-} from "@/components/ui/dialog"; // ✅ Fix this path
+} from "@/components/ui/dialog";
 import { motion } from "framer-motion";
 
-const projects = [
+// Define project type
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  tech: string[];
+  liveLink: string;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Swift Styles Shop",
     category: "E-commerce",
-    image: "/hero.jpeg",
-    description: "A clean, mobile-first e-commerce platform with M-Pesa integration.",
+    image: "/porth.jpeg",
+    description: "A sleek and modern e-commerce store integrated with M-Pesa.",
     tech: ["Next.js", "MongoDB", "TailwindCSS"],
     liveLink: "https://swift-styles.vercel.app",
   },
   {
     id: 2,
-    title: "CarePlus Health",
+    title: "CareCrest Nursing",
     category: "HealthTech",
-    image: "/hero.jpeg",
-    description: "A hospital management system for streamlined patient care.",
+    image: "/portc.jpeg",
+    description: "Patient-focused healthcare management system with emergency features.",
     tech: ["Next.js", "Prisma", "Clerk"],
-    liveLink: "https://careplus.vercel.app",
+    liveLink: "https://carecrest.vercel.app",
   },
   {
     id: 3,
     title: "Astra Web Redesign",
     category: "Corporate",
-    image: "/hero.jpeg",
-    description: "Modern redesign for our own agency website.",
+    image: "/porta.jpeg",
+    description: "Modern redesign for our web agency site to elevate clarity and trust.",
     tech: ["Next.js", "Figma", "ShadCN UI"],
     liveLink: "#",
   },
@@ -43,14 +54,13 @@ const projects = [
 export default function Work() {
   return (
     <motion.section
-  id="work"
-  className="bg-warm-white dark:bg-[#0b0f19] py-20 px-4 scroll-mt-28"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
->
-
+      id="work"
+      className="bg-warm-white dark:bg-[#0b0f19] py-20 px-4 scroll-mt-28"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
           className="flex justify-between items-center mb-10"
@@ -100,49 +110,43 @@ export default function Work() {
               </DialogTrigger>
 
               <DialogContent className="max-w-2xl">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <DialogTitle className="text-2xl font-bold mb-4">
-                    {project.title}
-                  </DialogTitle>
+                <DialogTitle className="text-2xl font-bold mb-4">
+                  {project.title}
+                </DialogTitle>
 
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={800}
-                    height={400}
-                    className="w-full rounded-md mb-4 object-cover"
-                  />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={800}
+                  height={400}
+                  className="w-full rounded-md mb-4 object-cover"
+                />
 
-                  <p className="text-astro-muted dark:text-slate-300 mb-4 text-sm">
-                    {project.description}
-                  </p>
+                <p className="text-astro-muted dark:text-slate-300 mb-4 text-sm">
+                  {project.description}
+                </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-astro-blue text-white text-xs px-2 py-1 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.liveLink !== "#" && (
-                    <Link
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-2 text-sm text-astro-blue underline hover:text-astro-accent transition"
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={`${tech}-${i}`}
+                      className="bg-astro-blue text-white text-xs px-2 py-1 rounded-full"
                     >
-                      Visit Live Project
-                    </Link>
-                  )}
-                </motion.div>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {project.liveLink !== "#" && (
+                  <Link
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-sm text-astro-blue underline hover:text-astro-accent transition"
+                  >
+                    Visit Live Project
+                  </Link>
+                )}
               </DialogContent>
             </Dialog>
           ))}
