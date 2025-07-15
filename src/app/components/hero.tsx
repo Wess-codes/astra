@@ -48,9 +48,8 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix?: string }) 
 
 export default function Hero() {
   return (
-    <section className="relative h-screen overflow-hidden no-scrollbar flex items-center justify-center text-black dark:text-white bg-white dark:bg-[#0d1117]">
-
-    <div className="relative z-10 w-full max-w-6xl px-6 sm:px-8 md:px-12 flex flex-col justify-center items-center h-full py-8">
+    <section className="relative h-screen overflow-hidden flex items-center justify-center bg-white dark:bg-[#0d1117] text-black dark:text-white">
+      <div className="w-full max-w-6xl px-6 sm:px-8 md:px-12 flex flex-col justify-center items-center h-full py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 w-full">
           {/* LEFT - Image */}
           <motion.div
@@ -85,7 +84,7 @@ export default function Hero() {
 
             <p className="text-lg sm:text-xl font-normal leading-relaxed">
               We help you tell your story and build your brand through{" "}
-              <span className="text-astro-brand">World-class webdesign services.</span>
+              <span className="text-astro-brand">World-class web design services.</span>
             </p>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-2">

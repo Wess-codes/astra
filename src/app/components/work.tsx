@@ -2,16 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogTitle,
-  DialogClose,
-  DialogDescription,
-} from "@/components/ui/dialog";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import ProjectDialog from "@/app/components/ProjectDialog";
 
 type Project = {
   id: number;
@@ -83,88 +75,30 @@ export default function Work() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {projects.map((project, index) => (
-            <Dialog key={project.id}>
-              <DialogTrigger asChild>
-                <motion.div
-                  className="cursor-pointer group border rounded-xl overflow-hidden shadow-sm hover:shadow-lg bg-white dark:bg-[#111827] transition-transform duration-300 hover:scale-[1.02]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                >
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} preview`}
-                    width={400}
-                    height={250}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-astro-text dark:text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-astro-muted dark:text-gray-400 mt-1">
-                      {project.category}
-                    </p>
-                  </div>
-                </motion.div>
-              </DialogTrigger>
-
-              <DialogContent
-                className="max-w-2xl w-full bg-white dark:bg-[#111827] p-6 max-h-[90vh] overflow-y-auto rounded-xl relative"
-                aria-describedby={`dialog-description-${project.id}`}
+            <ProjectDialog key={project.id} project={project}>
+              <motion.div
+                className="cursor-pointer group border rounded-xl overflow-hidden shadow-sm hover:shadow-lg bg-white dark:bg-[#111827] transition-transform duration-300 hover:scale-[1.02]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
               >
-                <DialogClose asChild>
-                  <button
-                    aria-label="Close"
-                    className="absolute top-4 right-4 text-gray-500 hover:text-black dark:hover:text-white transition"
-                  >
-                    ✕
-                  </button>
-                </DialogClose>
-
-                <DialogTitle className="text-2xl font-bold mb-2 text-astro-text dark:text-white">
-                  {project.title}
-                </DialogTitle>
-
-                <DialogDescription
-                  id={`dialog-description-${project.id}`}
-                  className="text-sm mb-4 leading-relaxed text-gray-700 dark:text-slate-300"
-                >
-                  {project.description}
-                </DialogDescription>
-
                 <Image
                   src={project.image}
-                  alt={project.title}
-                  width={600}
-                  height={300}
-                  className="w-full rounded-lg object-cover mb-4"
+                  alt={`${project.title} preview`}
+                  width={400}
+                  height={250}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={`${tech}-${i}`}
-                      className="text-xs bg-astro-blue/10 text-astro-blue dark:bg-astro-accent/10 dark:text-astro-accent px-2 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-astro-text dark:text-white">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-astro-muted dark:text-gray-400 mt-1">
+                    {project.category}
+                  </p>
                 </div>
-
-                {project.liveLink !== "#" && (
-                  <Link
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button className="bg-astro-blue hover:bg-blue-700 text-white px-4 py-2 text-sm rounded mt-2 transition">
-                      Visit Live Project →
-                    </Button>
-                  </Link>
-                )}
-              </DialogContent>
-            </Dialog>
+              </motion.div>
+            </ProjectDialog>
           ))}
         </div>
       </div>

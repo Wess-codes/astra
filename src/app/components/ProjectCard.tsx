@@ -83,6 +83,13 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
           {project.title}
         </DialogTitle>
 
+        <DialogDescription
+          id={`project-desc-${idSafeTitle}`}
+          className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+        >
+          {project.description}
+        </DialogDescription>
+
         <Image
           src={project.image}
           alt={project.title}
@@ -90,13 +97,6 @@ export default function ProjectCard({ project, withDialog = false }: ProjectCard
           height={300}
           className="w-full h-auto object-cover rounded-lg mb-4"
         />
-
-        <DialogDescription
-          id={`project-desc-${idSafeTitle}`}
-          className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
-        >
-          {project.description}
-        </DialogDescription>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((tech, i) => (
