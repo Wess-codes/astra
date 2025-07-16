@@ -1,4 +1,4 @@
-// layout.tsx or layout.js
+// layout.tsx
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Astra Design",
   description: "Crafted by Astra Design for forward-thinking brands.",
   icons: {
-    icon: "/favicon.ico", // ✅ Add your favicon here
+    icon: "/favicon.ico", // ✅ Add favicon
   },
 };
 
@@ -28,8 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* ✅ Fallback for browsers not using Next.js metadata */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
         className={`${manrope.variable} font-sans antialiased scroll-smooth`}

@@ -38,7 +38,7 @@ const values = [
     icon: CalendarCheck,
   },
   {
-    title: "What We Offer",
+    title: "Design Expertise",
     description:
       "From concept to deployment — complete web design, development, redesign, and SEO optimization.",
     icon: RefreshCw,
