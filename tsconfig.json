@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "types": ["react", "react-dom"],
+    "jsx": "preserve",
+    "types": [
+      "react",
+      "react-dom"
+    ],
     "target": "ES2017",
     "lib": [
       "dom",

@@ -1,20 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
+  DialogHeader,
   DialogTitle,
+  DialogDescription,
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
-import { ReactNode } from "react";
 
 export type Project = {
-  id: number | string;
+  id: number;
   title: string;
   category: string;
   image: string;
@@ -28,68 +28,68 @@ export default function ProjectDialog({
   children,
 }: {
   project: Project;
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
-  const descId = `project-dialog-desc-${project.id}`;
-
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-
-      <DialogContent
-        className="max-w-2xl w-full bg-white dark:bg-[#111827] p-6 max-h-[90vh] overflow-y-auto rounded-xl relative"
-        aria-describedby={descId}
-      >
-        <DialogClose asChild>
-          <button
-            aria-label="Close"
-            className="absolute top-4 right-4 text-gray-500 hover:text-black dark:hover:text-white transition"
-          >
-            ✕
-          </button>
-        </DialogClose>
-
-        <DialogTitle className="text-2xl font-bold mb-2 text-astro-text dark:text-white">
-          {project.title}
-        </DialogTitle>
-
-        <DialogDescription
-          id={descId}
-          className="text-sm mb-4 leading-relaxed text-gray-700 dark:text-slate-300"
-        >
-          {project.description}
-        </DialogDescription>
-
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={600}
-          height={300}
-          className="w-full rounded-lg object-cover mb-4"
-        />
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.map((tech, i) => (
-            <span
-              key={`${tech}-${i}`}
-              className="text-xs bg-astro-blue/10 text-astro-blue dark:bg-astro-accent/10 dark:text-astro-accent px-2 py-1 rounded-full"
+      <DialogContent className="max-w-2xl bg-white dark:bg-[#111827] rounded-xl shadow-lg max-h-[90vh] overflow-y-auto p-0">
+        {/* Header with Close Button */}
+        <DialogHeader className="relative p-4 border-b border-gray-200 dark:border-gray-700">
+          <DialogTitle className="text-xl font-bold text-gray-900 dark:text-white">
+            {project.title}
+          </DialogTitle>
+          <DialogDescription className="text-sm text-gray-500 dark:text-gray-400">
+            {project.category}
+          </DialogDescription>
+          {/* Close Button */}
+          <DialogClose asChild>
+            <button
+              className="absolute top-3 right-3 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+              aria-label="Close"
             >
-              {tech}
-            </span>
-          ))}
+              <X className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+            </button>
+          </DialogClose>
+        </DialogHeader>
+
+        {/* Image */}
+        <div className="w-full">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={800}
+            height={500}
+            className="w-full max-h-72 object-cover rounded-t-lg"
+          />
         </div>
 
-        {project.liveLink !== "#" && (
-          <Link
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="bg-astro-blue hover:bg-blue-700 text-white px-4 py-2 text-sm rounded mt-2 transition">
-              Visit Live Project →
+        {/* Content */}
+        <div className="p-4">
+          {/* Description */}
+          <p className="text-gray-700 dark:text-gray-300">{project.description}</p>
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-2 mt-4">
+            {project.tech.map((tech, index) => (
+              <span
+                key={index}
+                className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs px-3 py-1 rounded-full"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-6 flex justify-end">
+            <Button asChild>
+              <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                View Live
+              </a>
             </Button>
-          </Link>
-        )}
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );
