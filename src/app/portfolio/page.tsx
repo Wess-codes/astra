@@ -30,7 +30,7 @@ const projects: Project[] = [
     image: "/porta.jpeg",
     description: "Modern redesign for our web agency site to elevate clarity and trust.",
     tech: ["Next.js", "Figma", "ShadCN UI"],
-    liveLink: "https://astra-design-omega.vercel.app",
+    liveLink: "https://astra-design.vercel.app",
   },
   {
   id: 4,

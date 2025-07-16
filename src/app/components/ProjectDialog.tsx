@@ -43,14 +43,7 @@ export default function ProjectDialog({
             {project.category}
           </DialogDescription>
           {/* Close Button */}
-          <DialogClose asChild>
-            <button
-              className="absolute top-3 right-3 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-              aria-label="Close"
-            >
-              <X className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-            </button>
-          </DialogClose>
+         
         </DialogHeader>
 
         {/* Image */}
