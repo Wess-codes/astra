@@ -1,21 +1,16 @@
-import Hero from "./components/hero";
-import Services from "./components/services";
-import Testimonials from "./components/testimoials";
-import Values from "./components/values";
-import Work from "./components/work";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Check } from "lucide-react";
+import { CTA, Downloads, HeroImage, PhotoGrid, SectionHeading, ServiceGrid } from "./components/bridge";
 
-export default function Home() {
-  return (
-    <>
-      <div>
-        <main className="overflow-x-hidden p-0 m-0">
-        <Hero />
-        <Services />
-        <Work />
-        <Values />
-        <Testimonials />
-        </main>
-      </div>
-    </>
-  );
-}
+export const metadata = { title: "Bridge AI | CCTV installation Nairobi & technology solutions", description: "CCTV installation Nairobi, access control, networking and software supplied, installed and supported by Bridge AI." };
+
+export default function Home() { return <main>
+  <section className="container grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.05fr_.95fr] lg:items-center"><div><p className="eyebrow">SECURITY & TECHNOLOGY, CONNECTED</p><h1 className="mt-5 max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-navy sm:text-6xl">Connecting your business to smarter security & technology</h1><p className="mt-6 max-w-xl text-lg leading-8 text-body">CCTV, networking, access control and software, supplied, installed and supported by one team.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/contact" className="btn btn-primary">Get a quote <ArrowRight className="size-4" /></Link><Link href="/services" className="btn btn-outline">View our services</Link></div></div><HeroImage /></section>
+  <section className="bg-light-blue"><div className="container flex flex-col gap-5 py-7 lg:flex-row lg:items-center lg:justify-between"><div><p className="eyebrow text-[#147a46]">AUTHORISED PARTNER</p><p className="mt-2 text-lg font-extrabold text-navy">Dahua <span className="text-blue">·</span> Hikvision <span className="text-blue">·</span> Hanwha</p></div><p className="text-sm font-semibold text-body">We also supply: <strong className="text-navy">Ubiquiti · Cisco · ZKTeco · Ruijie</strong></p></div></section>
+  <section className="container py-20"><SectionHeading eyebrow="WHAT WE DO" title="Technology that works for your business" text="From a single camera to a complete connected workplace, we design practical systems around how your team operates." /><div className="mt-10"><ServiceGrid /></div></section>
+  <section className="bg-card"><div className="container py-20"><SectionHeading eyebrow="PRODUCTS" title="Choose the right building blocks" /><div className="mt-10 grid gap-4 md:grid-cols-3">{["CCTV cameras explained", "Camera catalogue", "Access control & biometrics"].map((x, i) => <Link href="/products" className="card group p-6" key={x}><span className="text-sm font-bold text-blue">0{i + 1}</span><h3 className="mt-12 text-xl font-bold text-navy">{x}</h3><span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue">Explore guide <ArrowRight className="size-4 transition group-hover:translate-x-1" /></span></Link>)}</div></div></section>
+  <section className="container grid gap-12 py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center"><div><SectionHeading eyebrow="OUR PROMISE" title="Quality you can see. Support you can count on." /><ul className="mt-8 flex flex-col gap-4 text-body">{["Genuine, warrantied equipment", "Neat, professional installation", "Your team trained at handover", "After-sales support"].map(x => <li className="flex gap-3" key={x}><Check className="mt-1 size-5 text-green" />{x}</li>)}</ul></div><div className="grid grid-cols-2 gap-4"><Image src="/values.jpeg" alt="Dome camera installation" width={600} height={700} className="h-72 w-full rounded-xl object-cover" /><Image src="/hero2.jpeg" alt="Organised network rack" width={600} height={700} className="mt-10 h-72 w-full rounded-xl object-cover" /></div></section>
+  <section className="container py-20"><div className="flex items-end justify-between gap-4"><SectionHeading eyebrow="RECENT WORK" title="Built for the way you work" /><Link href="/projects" className="hidden text-sm font-bold text-blue sm:inline-flex">View all projects <ArrowRight className="ml-2 size-4" /></Link></div><div className="mt-10"><PhotoGrid /></div></section>
+  <Downloads /><CTA />
+</main> }

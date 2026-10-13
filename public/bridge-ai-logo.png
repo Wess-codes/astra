@@ -1,0 +1,55 @@
+Redesign this existing Next.js (App Router, Tailwind) website for "Bridge AI", a Nairobi-based technology company. It is currently a web-design studio site called "Astra Design"; reposition it as a full tech solutions company: CCTV, monitoring rooms, networking, access control & biometrics, software, and data/system services. Keep the existing project structure and routes where possible. I have attached the logo PNG.
+
+BRAND
+- Logo: attached PNG (navy "bridge" + blue "a" + green "i" with a green arch above "ai"). Use the colour version on white; never place it on dark backgrounds except in an optional dark footer variant using the white logo.
+- Colours: navy #0D0B24 (text/headings), blue #3B8DE8 (primary accent, links, icons), green #2FD07A (secondary accent, badges, highlights), light blue #E6EFFC (accent bands), page background #FFFFFF, card background #F5F7FB, body text #3A4150.
+- Fonts (Google Fonts via next/font): Quicksand 600/700 for headings and logo-adjacent text, Manrope 400–800 for body.
+- Style: clean, white, minimal, generous spacing, rounded cards (10–12px radius), thin borders #DDE3EE, no dark hero, no gradients, no stock-looking illustrations. Mobile-first; must look excellent on phones since most traffic comes from WhatsApp links.
+
+NAVBAR
+- Logo left. Links: Home, Services, Products, Projects, Contact. Right: green "WhatsApp us" button linking to https://wa.me/254799960446. Sticky, white, subtle bottom border. Hamburger menu on mobile.
+
+HOME PAGE SECTIONS (in order)
+1. Hero: H1 "Connecting your business to smarter security & technology". Sub: "CCTV, networking, access control and software, supplied, installed and supported by one team." Buttons: "Get a quote" (to /contact) and "View our services". Right side: a photo slot (I'll supply a monitoring-room video wall photo, use /images/videowall.jpg). Small green pill: "5+ active clients".
+2. Partner strip (light blue band): "AUTHORISED PARTNER" label + "Dahua · Hikvision · Hanwha" in bold; right side "We also supply: Ubiquiti · Cisco · ZKTeco · Ruijie". Use text, not brand logos.
+3. Services grid (6 cards, 3 columns desktop, 1 column mobile), each with a simple line icon (lucide-react), title and 3 bullet points:
+   - CCTV & Surveillance: IP cameras, NVRs & DVRs / Remote viewing on your phone / Smart AI motion analytics
+   - Monitoring Rooms: Control room design / Video walls & operator desks / Centralised camera management
+   - Networking: Structured cabling & racks / Office-wide Wi-Fi & switching / Firewalls & routers
+   - Security & Access: Biometric & card access control / Alarms & intruder detection / Video intercoms
+   - Software: Websites & web apps / ERP systems / Mobile apps
+   - Data & Systems: Data migrations / System upgrades / System redesigns
+4. Products teaser: 3 cards linking to /products: "CCTV cameras explained", "Camera catalogue (Hanwha, Hikvision, Dahua)", "Access control & biometrics".
+5. Quality section: heading "Quality you can see. Support you can count on." with 4 check-mark points: Genuine, warrantied equipment / Neat, professional installation / Your team trained at handover / After-sales support. Two photos beside it (/images/dome.jpg, /images/rack.jpg).
+6. Projects preview: grid of 4 photos from /images (videowall, cabinet, rack, dome) with short captions, plus existing software projects (Swift Styles Shop, CareCrest Nursing) as cards. Link "View all projects" to /projects.
+7. Downloads: two cards with download buttons: "Company brochure (PDF)" → /downloads/Bridge-AI-Brochure-A4.pdf and "Hardware & product guide (PDF)" → /downloads/Bridge-AI-Hardware-Product-Guide.pdf.
+8. CTA band (light blue): "Not sure what fits your site? Tell us, and we'll recommend the right setup." with Call and WhatsApp buttons.
+9. Remove the testimonials section entirely (I will add real ones later). Remove the stats counters.
+
+/services PAGE
+- One section per service with the bullets above expanded into 2–3 sentences each, plus an enquiry button per service that opens WhatsApp with a prefilled message, e.g. https://wa.me/254799960446?text=Hi%20Bridge%20AI%2C%20I%27m%20interested%20in%20CCTV.
+
+/products PAGE (content from our hardware guide)
+- Camera types table: Dome, Bullet, Turret, PTZ, Fisheye/multi-sensor with "best for" descriptions.
+- Resolution cards: 2MP (overview), 4MP (recommended, faces at doors), 8MP/4K (gates, number plates).
+- Night vision: Infrared, Full-colour (Hikvision ColorVu, Dahua Full-Color), Smart hybrid light.
+- Storage table: 4 cams/2TB, 8 cams/4TB, 16 cams/8TB ≈ 15 days continuous H.265 recording, marked "approximate".
+- AI analytics cards: line crossing, human/vehicle filtering, face detection, number plate recognition, people counting, heat maps.
+- Catalogue by brand: Hanwha Vision (A, Q, X, P, T series), Hikvision (ColorVu, AcuSense, DeepinView, DarkFighter, PanoVu, PTZ), Dahua (WizSense, WizMind, Full-Color, TiOC, PTZ, Fisheye), each with an "Authorised partner" badge.
+- Access control: Hikvision MinMoe face terminals (Value, Pro, Ultra), Dahua face & time attendance terminals, Hanwha Wisenet Access Control; plus verification methods: face, fingerprint, card, mobile/PIN.
+
+/projects PAGE
+- Filterable gallery (All / Security / Networking / Software) using the images in /images and the existing portfolio projects.
+
+/contact PAGE
+- Contact cards: Call/WhatsApp +254 790 470 430 and +254 799 960 446 (tel: and wa.me links), Email oyoogeoffrey8@gmail.com and wesskibaara77@gmail.com (mailto), Location Nairobi, Kenya.
+- Simple enquiry form: name, phone, email, service (select from the 6 services), message. On submit, open WhatsApp with the form contents prefilled (no backend needed).
+
+FOOTER
+- White background, top border. Logo, one-line description, quick links, both phone numbers, both emails, "Nairobi, Kenya", © 2026 Bridge AI. Only include social icons for accounts I provide; leave them out for now.
+
+TECHNICAL
+- Use next/image for all photos, lazy loading, alt text on every image.
+- SEO: page titles and meta descriptions targeting "CCTV installation Nairobi", "access control Nairobi", "networking Kenya"; Open Graph image using the logo.
+- Accessibility: proper heading order, 4.5:1 text contrast, visible focus states.
+- Do not invent testimonials, statistics, client names or certifications.

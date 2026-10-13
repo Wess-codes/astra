@@ -1,19 +1,17 @@
 // layout.tsx
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Quicksand } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
+const quicksand = Quicksand({ subsets: ["latin"], variable: "--font-quicksand", weight: ["600", "700"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Astra Design",
-  description: "Crafted by Astra Design for forward-thinking brands.",
+  title: "Bridge AI | Security & technology solutions",
+  description: "CCTV installation Nairobi, access control, networking and software supplied, installed and supported by Bridge AI.",
+  openGraph: { title: "Bridge AI", description: "Smarter security and technology solutions in Nairobi.", images: ["/bridge-ai-logo.png"] },
   icons: {
     icon: "/favicon.ico", // ✅ Add favicon
   },
@@ -31,7 +29,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${manrope.variable} font-sans antialiased scroll-smooth`}
+        className={`${manrope.variable} ${quicksand.variable} font-sans antialiased scroll-smooth`}
       >
         <Nav />
         {children}

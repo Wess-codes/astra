@@ -5,6 +5,11 @@ module.exports = {
 	theme: {
 	  extend: {
 		colors: {
+		  navy: '#0D0B24',
+		  blue: '#3B8DE8',
+		  green: '#2FD07A',
+		  'light-blue': '#E6EFFC',
+		  body: '#3A4150',
 		  // 🎨 Brand Colors
 		  'astro-primary': '#5B21B6',
 		  'astro-accent': '#F97316',
