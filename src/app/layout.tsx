@@ -26,7 +26,7 @@ export default function RootLayout({
         className={`${manrope.variable} ${quicksand.variable} font-sans antialiased scroll-smooth`}
       >
         <Nav />
-        {children}
+        <div id="main-content">{children}</div>
         <Footer />
       </body>
     </html>
