@@ -11,15 +11,17 @@ export const services = [
   { title: "Data & Systems", icon: Wifi, bullets: ["Data migrations", "System upgrades", "System redesigns"] },
 ];
 
+const imageHost = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com";
+
 export const photos = [
-  { src: "/hero.jpeg", title: "Monitoring room", category: "Security" },
-  { src: "/hero1.jpeg", title: "Secure equipment cabinet", category: "Networking" },
-  { src: "/hero2.jpeg", title: "Structured network rack", category: "Networking" },
-  { src: "/values.jpeg", title: "Dome camera installation", category: "Security" },
+  { src: `${imageHost}/CCTV%20Camera%20Installation%20Kampala-GSMWODDZ9S37a1aSrQ0hobUvwllOJG.jpg`, title: "CCTV installation", category: "Security" },
+  { src: `${imageHost}/1005710160560686836-W5nW4yGJVGvPGdQEurnE6pemfQ3R2j.jpg`, title: "Professional camera fitting", category: "Security" },
+  { src: `${imageHost}/Latest%20GMB%20Post%20-%20Security%20Cameras%20Mississauga-ZDTaYo62omU7vGyDWWZzLkctyPM6Zk.jpg`, title: "Security monitoring cabinet", category: "Networking" },
+  { src: `${imageHost}/13581236385740162-Gdj6TkJnk7vh7yteufkNpsCoyz4Ald.jpg`, title: "Connected monitoring room", category: "Networking" },
 ];
 
 export function Logo({ className = "" }: { className?: string }) {
-  return <span className={`text-xl font-extrabold tracking-tight text-navy ${className}`}>Bridge <span className="text-blue">AI</span></span>;
+  return <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Bridge-AI-Logo-On-White-y05Ub6yfUe6fQZLjSksQdUDsDPjKEk.jpg" alt="Bridge AI" width={170} height={60} className={`h-10 w-auto object-contain ${className}`} priority />;
 }
 
 export function SectionHeading({ eyebrow, title, text }: { eyebrow?: string; title: string; text?: string }) {
@@ -38,6 +40,6 @@ export function PhotoGrid() { return <div className="grid gap-4 sm:grid-cols-2">
 
 export function CheckList({ items }: { items: string[] }) { return <ul className="flex flex-col gap-4">{items.map(item => <li key={item} className="flex gap-3 text-body"><Check className="mt-1 size-5 shrink-0 text-green" />{item}</li>)}</ul>; }
 
-export function HeroImage() { return <div className="relative"><Image src="/hero.jpeg" alt="Bridge AI monitoring room with video wall" width={900} height={700} className="aspect-[4/3] rounded-2xl object-cover" priority /><div className="absolute -bottom-4 left-4 rounded-full border border-green/20 bg-white px-4 py-2 text-sm font-bold text-navy shadow-lg"><span className="mr-2 inline-block size-2 rounded-full bg-green" />5+ active clients</div></div>; }
+export function HeroImage() { return <div className="relative"><Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Best%20CCTV%20Installation%20Services%20in%20Nigeria-GRrkuMAvrtbGGHUCdt4UfQHbtcTggm.jpg" alt="Technician installing a CCTV camera" width={900} height={700} className="aspect-[4/3] rounded-2xl object-cover" priority /><div className="absolute -bottom-4 left-4 rounded-full border border-green/20 bg-white px-4 py-2 text-sm font-bold text-navy shadow-lg"><span className="mr-2 inline-block size-2 rounded-full bg-green" />5+ active clients</div></div>; }
 
 export function BrandBadge() { return <span className="badge"><ShieldCheck className="size-4" />Authorised partner</span>; }
