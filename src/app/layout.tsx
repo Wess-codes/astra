@@ -9,7 +9,8 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", displa
 const quicksand = Quicksand({ subsets: ["latin"], variable: "--font-quicksand", weight: ["600", "700"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Bridge AI | Security & technology solutions",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "Bridge AI | Security & Technology Solutions",
   description: "CCTV installation Nairobi, access control, networking and software supplied, installed and supported by Bridge AI.",
   openGraph: { title: "Bridge AI", description: "Smarter security and technology solutions in Nairobi.", images: ["/bridge-ai-logo.png"] },
 };

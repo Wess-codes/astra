@@ -14,10 +14,10 @@ export const services = [
 const imageHost = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com";
 
 export const photos = [
-  { src: `${imageHost}/CCTV%20Camera%20Installation%20Kampala-GSMWODDZ9S37a1aSrQ0hobUvwllOJG.jpg`, title: "CCTV installation", category: "Security" },
-  { src: `${imageHost}/1005710160560686836-W5nW4yGJVGvPGdQEurnE6pemfQ3R2j.jpg`, title: "Professional camera fitting", category: "Security" },
-  { src: `${imageHost}/Latest%20GMB%20Post%20-%20Security%20Cameras%20Mississauga-ZDTaYo62omU7vGyDWWZzLkctyPM6Zk.jpg`, title: "Security monitoring cabinet", category: "Networking" },
-  { src: `${imageHost}/13581236385740162-Gdj6TkJnk7vh7yteufkNpsCoyz4Ald.jpg`, title: "Connected monitoring room", category: "Networking" },
+  { src: `${imageHost}/CCTV%20Camera%20Installation%20Kampala-GSMWODDZ9S37a1aSrQ0hobUvwllOJG.jpg`, title: "Dome camera installation", category: "CCTV installation" },
+  { src: `${imageHost}/1005710160560686836-W5nW4yGJVGvPGdQEurnE6pemfQ3R2j.jpg`, title: "Bullet camera installation", category: "Outdoor surveillance" },
+  { src: `${imageHost}/Latest%20GMB%20Post%20-%20Security%20Cameras%20Mississauga-ZDTaYo62omU7vGyDWWZzLkctyPM6Zk.jpg`, title: "Network cabinet and CCTV monitor", category: "CCTV infrastructure" },
+  { src: `${imageHost}/13581236385740162-Gdj6TkJnk7vh7yteufkNpsCoyz4Ald.jpg`, title: "Monitoring room display", category: "Video monitoring" },
 ];
 
 export function Logo({ className = "" }: { className?: string }) {
