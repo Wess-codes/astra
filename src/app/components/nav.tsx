@@ -35,15 +35,15 @@ export default function Nav() {
   return <>
     <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-3 focus:z-[60] focus:rounded-xl focus:bg-white focus:px-4 focus:py-3 focus:text-navy">Skip to content</a>
     <header className="sticky top-0 z-50 bg-white">
-      <div className="container flex h-20 items-center justify-between">
-        <Link href="/" onClick={closeMenu} aria-label="Bridge AI home" className="shrink-0"><Logo className="h-[30px] md:h-[34px]" /></Link>
+      <div className="container flex h-16 items-center justify-between md:h-20">
+        <Link href="/" onClick={closeMenu} aria-label="Bridge AI home" className="shrink-0"><Logo className="h-7 md:h-[34px]" /></Link>
         <nav aria-label="Main" className="hidden items-center gap-10 lg:flex">
           {links.map(([label, href]) => <Link key={href} href={href} className={`relative py-3 text-[15px] font-medium text-[#3A4150] transition hover:text-[#0D0B24] ${isActive(href) ? "text-[#0D0B24]" : ""}`}>{label}</Link>)}
         </nav>
         <a href="https://wa.me/254799960446" className="btn btn-green hidden h-11 rounded-xl px-6 font-semibold lg:inline-flex " ><MessageCircle className="size-4" aria-hidden="true" />WhatsApp us</a>
         <button type="button" className="flex size-11 items-center justify-center rounded-xl text-navy transition hover:bg-[#F5F7FB] lg:hidden" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"}>{open ? <X /> : <Menu />}</button>
       </div>
-      {open && <nav id="mobile-menu" aria-label="Mobile main" className="bg-white px-6 py-6 lg:hidden"><div className="flex flex-col">{links.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu} className="flex min-h-[52px] items-center text-lg font-medium text-[#3A4150]">{label}</Link>)}<a href="https://wa.me/254799960446" onClick={closeMenu} className="btn btn-green mt-4 h-12 w-full rounded-xl font-semibold"><MessageCircle className="size-4" aria-hidden="true" />WhatsApp us</a></div></nav>}
+      {open && <nav id="mobile-menu" aria-label="Mobile main" className="bg-white px-6 py-6 lg:hidden"><div className="flex flex-col">{links.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu} className="flex min-h-14 items-center text-xl font-medium text-[#3A4150]">{label}</Link>)}<div className="mt-4 grid gap-3 sm:grid-cols-2"><a href="https://wa.me/254799960446" onClick={closeMenu} className="btn btn-green h-12 w-full rounded-xl font-semibold"><MessageCircle className="size-4" aria-hidden="true" />WhatsApp us</a><a href="tel:+254790470430" onClick={closeMenu} className="btn btn-primary h-12 w-full rounded-xl font-semibold">Call us</a></div></div></nav>}
     </header>
   </>;
 }
