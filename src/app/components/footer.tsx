@@ -7,8 +7,8 @@ import { Logo } from "./bridge";
 const companyLinks = [["Home", "/"], ["Services", "/services"], ["Products", "/products"], ["Projects", "/projects"], ["Contact", "/contact"]];
 const serviceLinks = [["CCTV & Surveillance", "/services#cctv-surveillance"], ["Monitoring Rooms", "/services#monitoring-rooms"], ["Networking", "/services#networking"], ["Security & Access", "/services#security-access"], ["Software", "/services#software"], ["Data & Systems", "/services#data-systems"]];
 
-const footerLinkClass = "text-[15px] text-[#3A4150] transition hover:text-[#0D0B24] focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#3B8DE8]";
-const contactLinkClass = "flex min-w-0 items-start gap-3 text-[15px] text-[#3A4150] transition hover:text-[#0D0B24] focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#3B8DE8]";
+const footerLinkClass = "text-[15px] text-[#3A4150] transition hover:text-[#0D0B24]";
+const contactLinkClass = "flex min-w-0 items-start gap-3 text-[15px] text-[#3A4150] transition hover:text-[#0D0B24]";
 
 export default function Footer() {
   return <footer className="bg-[#F5F7FB]"><div className="container grid gap-12 pt-20 pb-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
@@ -23,5 +23,5 @@ export default function Footer() {
       <a className={contactLinkClass} href="mailto:wesskibaara77@gmail.com"><Mail className="mt-0.5 size-4 shrink-0 text-[#3B8DE8]" aria-hidden="true" /><span className="break-all">wesskibaara77@gmail.com</span></a>
       <p className={contactLinkClass}><MapPin className="mt-0.5 size-4 shrink-0 text-[#3B8DE8]" aria-hidden="true" /><span>Nairobi, Kenya</span></p>
     </div></div>
-    </div><div className="container flex flex-col items-center justify-between gap-4 border-t border-[rgba(13,11,36,0.08)] pt-8 pb-8 text-sm text-[#4A5468] md:flex-row"><span>© 2026 Bridge AI. All rights reserved.</span><button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#3B8DE8]">Back to top</button></div></footer>;
+    </div><div className="container mt-16 flex flex-col items-center justify-between gap-4 pt-0 pb-8 text-sm text-[#4A5468] md:flex-row"><span>© 2026 Bridge AI. All rights reserved.</span><button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Back to top</button></div></footer>;
 }

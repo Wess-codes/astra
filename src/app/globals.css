@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { --background: #fff; --foreground: #0D0B24; --border: #DDE3EE; --font-sans: var(--font-manrope); }
+:root { --background: #fff; --foreground: #0D0B24; --font-sans: var(--font-manrope); }
 @layer base { html { scroll-behavior: smooth; scroll-padding-top: 5rem; } body { @apply bg-white text-[#0D0B24]; font-family: var(--font-manrope), sans-serif; } }
 @layer components {
   .container { @apply mx-auto w-full max-w-6xl px-6 md:px-8; }
